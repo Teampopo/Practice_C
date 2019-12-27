@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int GCM(int a, int b) {
+	int r = 0;
+	return r = a % b;
+}
+
+int main(void) {
+	int val1 = 0, val2 = 0;
+	int temp = 0;
+
+	printf("두 수 입력 :\n");
+	scanf_s("%d %d", &val1, &val2);
+
+	if (val1 < val2) {
+		temp = val1;
+		val1 = val2;
+		val2 = temp;
+	}
+
+	while (1) {
+		if (GCM(val1,val2) == 0) {
+			printf("\n%d가 두 수의 최대 공약수입니다.", val2);
+			break;
+		}
+		printf("계산중...\n%d %d %d\n", val1, val2, GCM(val1, val2));
+    
+		temp = GCM(val1, val2);
+		val1 = val2;
+		val2 = temp;
+	}
+}
